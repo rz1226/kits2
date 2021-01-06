@@ -38,8 +38,10 @@ func (lk *LogKit) titleStr() string {
 }
 
 //  把日志信息放入
-func (lk *LogKit) Put(a ...string) {
-	lk.logs.Put(formatLogForPut(a...))
+func (lk *LogKit) Put(a ...string) string {
+	str := formatLogForPut(a...)
+	lk.logs.Put(str)
+	return str
 }
 
 // 输入的日志内容，增加额外的信息以及处理，如时间信息，或者截断等
